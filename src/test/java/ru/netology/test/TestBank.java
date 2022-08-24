@@ -96,10 +96,7 @@ public class TestBank {
         int balanceSecondCard = dashboardPage.getCardBalance(DataHelper.getSecondCardInfo());
         var transferPage = dashboardPage.fillCard(DataHelper.getSecondCardInfo());
         transferPage.transferMoney(DataHelper.getFirstCardInfo().getNumberOfCard(), 20_000);
-        int balanceFirstCardAfterTransfer = dashboardPage.getCardBalance(DataHelper.getFirstCardInfo());
-        int balanceSecondCardAfterTransfer = dashboardPage.getCardBalance(DataHelper.getSecondCardInfo());
-        Assertions.assertEquals(balanceFirstCard - 20_000, balanceFirstCardAfterTransfer);
-        Assertions.assertEquals(balanceSecondCard + 20_000, balanceSecondCardAfterTransfer);
+        transferPage.errorNotification();
     }
 }
 
