@@ -18,6 +18,7 @@ public class LoginInPage {
     public LoginInPage() {
         heading.shouldBe(Condition.visible);
     }
+
     public VerificationPage validLogin(DataHelper.AuthInfo info) {
         loginField.setValue(DataHelper.getAuthInfo().getLogin());
         passwordField.setValue(DataHelper.getAuthInfo().getPassword());

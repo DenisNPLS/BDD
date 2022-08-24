@@ -42,7 +42,7 @@ public class DashboardPage {
     public TransferPage fillCard(DataHelper.Card selectTo) {
         cards.findBy(Condition.attribute(dataTestId, selectTo.getId()));
         if (selectTo.equals(DataHelper.getFirstCardInfo())) {
-        buttons.get(0).click();
+            buttons.get(0).click();
         }
         if (selectTo.equals(DataHelper.getSecondCardInfo())) {
             buttons.get(1).click();

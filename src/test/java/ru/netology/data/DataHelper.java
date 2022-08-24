@@ -2,8 +2,9 @@ package ru.netology.data;
 
 import lombok.Data;
 import lombok.Value;
+
 public class DataHelper {
-    private DataHelper(){
+    private DataHelper() {
 
     }
 
@@ -17,6 +18,7 @@ public class DataHelper {
     public static class VerificationCode {
         private final String code;
     }
+
     @Value
     public static class Card {
         private final String id;
