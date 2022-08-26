@@ -3,21 +3,16 @@ package ru.netology.page;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import lombok.Data;
-import lombok.experimental.UtilityClass;
 import lombok.val;
-import org.openqa.selenium.By;
 import ru.netology.data.DataHelper;
 
-import java.util.ArrayList;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class DashboardPage {
-    // к сожалению, разработчики не дали нам удобного селектора, поэтому так
     private ElementsCollection cards = $$(".list__item div");
     private final SelenideElement heading = $x("//*[@data-test-id='dashboard']");
-    private ElementsCollection buttons = $$x("//*[@data-test-id='action-deposit']");
+    private final String button = "[data-test-id='action-deposit']";
     private final String dataTestId = "data-test-id";
     private final String balanceStart = "баланс: ";
     private final String balanceFinish = " р.";
@@ -40,13 +35,7 @@ public class DashboardPage {
     }
 
     public TransferPage fillCard(DataHelper.Card selectTo) {
-        cards.findBy(Condition.attribute(dataTestId, selectTo.getId()));
-        if (selectTo.equals(DataHelper.getFirstCardInfo())) {
-            buttons.get(0).click();
-        }
-        if (selectTo.equals(DataHelper.getSecondCardInfo())) {
-            buttons.get(1).click();
-        }
+        cards.findBy(Condition.attribute(dataTestId, selectTo.getId())).find(button).click();
         return new TransferPage();
     }
 

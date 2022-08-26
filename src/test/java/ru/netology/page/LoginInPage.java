@@ -2,11 +2,9 @@ package ru.netology.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import lombok.extern.java.Log;
 import ru.netology.data.DataHelper;
 
 import static com.codeborne.selenide.Selenide.$x;
-import static java.awt.SystemColor.info;
 
 public class LoginInPage {
 
